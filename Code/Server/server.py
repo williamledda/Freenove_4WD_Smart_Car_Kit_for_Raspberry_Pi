@@ -144,7 +144,7 @@ class Server:
                     if self.tcp_Flag:
                         self.Reset()
                     break
-                print(AllData)
+                print(AllData, flush=True)
                 if len(AllData) < 5:
                     restCmd=AllData
                     if restCmd=='' and self.tcp_Flag:
