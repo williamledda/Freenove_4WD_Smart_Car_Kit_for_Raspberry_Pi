@@ -5,10 +5,11 @@
 # Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
-
+import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Client(object):
+
     def setupUi(self, Client):
         Client.setObjectName("Client")
         Client.resize(760, 610)
@@ -45,108 +46,129 @@ class Ui_Client(object):
         font.setFamily("3ds")
         font.setPointSize(10)
         Client.setFont(font)
-        Client.setStyleSheet("QWidget{\n"
-"background:#484848;\n"
-"}\n"
-"QAbstractButton{\n"
-"border-style:none;\n"
-"border-radius:0px;\n"
-"padding:5px;\n"
-"color:#DCDCDC;\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);\n"
-"}\n"
-"QAbstractButton:hover{\n"
-"color:#FFFFFF;\n"
-"background-color:#00BB9E;\n"
-"}\n"
-"QAbstractButton:pressed{\n"
-"color:#DCDCDC;\n"
-"border-style:solid;\n"
-"border-width:0px 0px 0px 2px;\n"
-"padding:4px 4px 4px 2px;\n"
-"border-color:#00BB9E;\n"
-"background-color:#444444;\n"
-"}\n"
-"QLabel{\n"
-"color:#DCDCDC;\n"
-"border:1px solid #242424;\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);\n"
-"}\n"
-"QLabel:focus{\n"
-"border:1px solid #00BB9E;\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);\n"
-"}\n"
-"QLineEdit{\n"
-"border:1px solid #242424;\n"
-"border-radius:3px;\n"
-"padding:2px;\n"
-"background:none;\n"
-"selection-background-color:#484848;\n"
-"selection-color:#DCDCDC;\n"
-"}\n"
-"QLineEdit:focus,QLineEdit:hover{\n"
-"border:1px solid #242424;\n"
-"}\n"
-"QLineEdit{\n"
-"border:1px solid #242424;\n"
-"border-radius:3px;\n"
-"padding:2px;\n"
-"background:none;\n"
-"selection-background-color:#484848;\n"
-"selection-color:#DCDCDC;\n"
-"}\n"
-"\n"
-"QLineEdit:focus,QLineEdit:hover{\n"
-"border:1px solid #242424;\n"
-"}\n"
-"QLineEdit{\n"
-"lineedit-password-character:9679;\n"
-"}\n"
-"QSlider::groove:horizontal,QSlider::add-page:horizontal{\n"
-"height:3px;\n"
-"border-radius:3px;\n"
-"background:#18181a;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::sub-page:horizontal{\n"
-"height:8px;\n"
-"border-radius:3px;\n"
-"background:#008aff;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::handle:horizontal{\n"
-"width:12px;\n"
-"margin-top:-5px;\n"
-"margin-bottom:-4px;\n"
-"border-radius:6px;\n"
-"background:qradialgradient(spread:pad,cx:0.5,cy:0.5,radius:0.5,fx:0.5,fy:0.5,stop:0.6 #565656,stop:0.8 #565656);\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::groove:vertical,QSlider::sub-page:vertical{\n"
-"width:3px;\n"
-"border-radius:3px;\n"
-"background:#18181a;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::add-page:vertical{\n"
-"width:8px;\n"
-"border-radius:3px;\n"
-"background:#008aff;\n"
-"}\n"
-"\n"
-"\n"
-"QSlider::handle:vertical{\n"
-"height:12px;\n"
-"margin-left:-5px;\n"
-"margin-right:-4px;\n"
-"border-radius:6px;\n"
-"background:qradialgradient(spread:pad,cx:0.5,cy:0.5,radius:0.5,fx:0.5,fy:0.5,stop:0.6 #565656,stop:0.8 #565656);\n"
-"}\n"
-"")
+# On Mac-os this style sheet make buttons not clickable. Maybe a bug in PyQt5?
+        if platform.system() != 'Darwin':
+                Client.setStyleSheet(
+                "QWidget{\n"
+                "background:#484848;\n"
+                "}\n"
+                "QAbstractButton{\n"
+                "border-style:none;\n"
+                "border-radius:0px;\n"
+                "padding:5px;\n"
+                "color:#DCDCDC;\n"
+                "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);\n"
+                "}\n"
+                "QAbstractButton:hover{\n"
+                "color:#FFFFFF;\n"
+                "background-color:#00BB9E;\n"
+                "}\n"
+                "QAbstractButton:pressed{\n"
+                "color:#DCDCDC;\n"
+                "border-style:solid;\n"
+                "border-width:0px 0px 0px 2px;\n"
+                "padding:4px 4px 4px 2px;\n"
+                "border-color:#00BB9E;\n"
+                "background-color:#444444;\n"
+                "}\n"
+                "QLabel{\n"
+                "color:#DCDCDC;\n"
+                "border:1px solid #242424;\n"
+                "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);\n"
+                "}\n"
+                "QLabel:focus{\n"
+                "border:1px solid #00BB9E;\n"
+                "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);\n"
+                "}\n"
+                "QLineEdit{\n"
+                "border:1px solid #242424;\n"
+                "border-radius:3px;\n"
+                "padding:2px;\n"
+                "background:none;\n"
+                "selection-background-color:#484848;\n"
+                "selection-color:#DCDCDC;\n"
+                "}\n"
+                "QLineEdit:focus,QLineEdit:hover{\n"
+                "border:1px solid #242424;\n"
+                "}\n"
+                "QLineEdit{\n"
+                "border:1px solid #242424;\n"
+                "border-radius:3px;\n"
+                "padding:2px;\n"
+                "background:none;\n"
+                "selection-background-color:#484848;\n"
+                "selection-color:#DCDCDC;\n"
+                "}\n"
+                "\n"
+                "QLineEdit:focus,QLineEdit:hover{\n"
+                "border:1px solid #242424;\n"
+                "}\n"
+                "QLineEdit{\n"
+                "lineedit-password-character:9679;\n"
+                "}\n"
+                "QSlider::groove:horizontal,QSlider::add-page:horizontal{\n"
+                "height:3px;\n"
+                "border-radius:3px;\n"
+                "background:#18181a;\n"
+                "}\n"
+                "\n"
+                "\n"
+                "QSlider::sub-page:horizontal{\n"
+                "height:8px;\n"
+                "border-radius:3px;\n"
+                "background:#008aff;\n"
+                "}\n"
+                "\n"
+                "\n"
+                "QSlider::handle:horizontal{\n"
+                "width:12px;\n"
+                "margin-top:-5px;\n"
+                "margin-bottom:-4px;\n"
+                "border-radius:6px;\n"
+                "background:qradialgradient(spread:pad,cx:0.5,cy:0.5,radius:0.5,fx:0.5,fy:0.5,stop:0.6 #565656,stop:0.8 #565656);\n"
+                "}\n"
+                "\n"
+                "\n"
+                "QSlider::groove:vertical,QSlider::sub-page:vertical{\n"
+                "width:3px;\n"
+                "border-radius:3px;\n"
+                "background:#18181a;\n"
+                "}\n"
+                "\n"
+                "\n"
+                "QSlider::add-page:vertical{\n"
+                "width:8px;\n"
+                "border-radius:3px;\n"
+                "background:#008aff;\n"
+                "}\n"
+                "\n"
+                "\n"
+                "QSlider::handle:vertical{\n"
+                "height:12px;\n"
+                "margin-left:-5px;\n"
+                "margin-right:-4px;\n"
+                "border-radius:6px;\n"
+                "background:qradialgradient(spread:pad,cx:0.5,cy:0.5,radius:0.5,fx:0.5,fy:0.5,stop:0.6 #565656,stop:0.8 #565656);\n"
+                "}\n"
+                "")
+        else:
+                print("Disabling style sheet on MacOs")
+
+        self.speed_slider = QtWidgets.QSlider(Client)
+        self.speed_slider.setGeometry(QtCore.QRect(10, 460, 80, 20))
+        font = QtGui.QFont()
+        font.setFamily("3ds")
+        font.setPointSize(10)
+        self.speed_slider.setFont(font)
+        self.speed_slider.setStyleSheet("")
+        self.speed_slider.setOrientation(QtCore.Qt.Horizontal)
+        self.speed_slider.setObjectName("Speed_factor")
+
+        # self.speed_slider_val = QtWidgets.QLabel("")
+        # self.speed_slider_val.setFont(font)
+        # self.speed_slider_val.setStyleSheet("")
+        # self.speed_slider_val.setGeometry(40, 490, 80, 20)
+
         self.Btn_ForWard = QtWidgets.QPushButton(Client)
         self.Btn_ForWard.setGeometry(QtCore.QRect(120, 460, 90, 30))
         font = QtGui.QFont()
@@ -322,6 +344,7 @@ class Ui_Client(object):
         font.setPointSize(10)
         self.checkBox_Led8.setFont(font)
         self.checkBox_Led8.setObjectName("checkBox_Led8")
+
         self.HSlider_Servo1 = QtWidgets.QSlider(Client)
         self.HSlider_Servo1.setGeometry(QtCore.QRect(470, 540, 160, 22))
         font = QtGui.QFont()
@@ -331,6 +354,7 @@ class Ui_Client(object):
         self.HSlider_Servo1.setStyleSheet("")
         self.HSlider_Servo1.setOrientation(QtCore.Qt.Horizontal)
         self.HSlider_Servo1.setObjectName("HSlider_Servo1")
+
         self.VSlider_Servo2 = QtWidgets.QSlider(Client)
         self.VSlider_Servo2.setGeometry(QtCore.QRect(680, 410, 22, 160))
         self.VSlider_Servo2.setStyleSheet("")
@@ -468,7 +492,7 @@ class Ui_Client(object):
 "}\n"
 "\n"
 "QProgressBar::chunk {\n"
-"background-color:#696969;\n"
+"background-color:#0000FF;\n"
 "width: 20px;\n"
 "}\n"
 "\n"
@@ -555,7 +579,7 @@ class Ui_Client(object):
         self.Btn_Up.setText(_translate("Client", "Up"))
         self.Btn_Right.setText(_translate("Client", "Right"))
         self.Window_Close.setText(_translate("Client", "×"))
-        self.IP.setText(_translate("Client", "IP Address"))
+        self.IP.setText(_translate("Client", ""))
         self.Btn_Connect.setText(_translate("Client", "Connect"))
         self.checkBox_Led1.setText(_translate("Client", "Led1"))
         self.label_Servo2.setText(_translate("Client", "0"))

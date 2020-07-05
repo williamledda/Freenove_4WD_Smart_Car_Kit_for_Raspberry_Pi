@@ -114,6 +114,12 @@ class mywindow(QMainWindow,Ui_Client):
         
         self.Ultrasonic.clicked.connect(self.on_btn_Ultrasonic)
         self.Light.clicked.connect(self.on_btn_Light)
+
+        self.speed_slider.setMinimum(1)
+        self.speed_slider.setMaximum(100)
+        self.speed_slider.setValue(100)
+        self.speed_slider.setSingleStep(1)
+        # self.speed_slider_val.setText("100")
         
         self.Btn_ForWard.pressed.connect(self.on_btn_ForWard)
         self.Btn_ForWard.released.connect(self.on_btn_Stop)
@@ -147,6 +153,13 @@ class mywindow(QMainWindow,Ui_Client):
         self.Window_Close.clicked.connect(self.close)
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.time)
+
+        self.HSlider_Servo1.setMinimum(0)
+        self.HSlider_Servo1.setMaximum(180)
+        self.HSlider_Servo1.setSingleStep(1)
+        self.HSlider_Servo1.setValue(self.servo1)
+        self.HSlider_Servo1.valueChanged.connect(self.Change_Left_Right)
+
     def mousePressEvent(self, event):
         if event.button()==Qt.LeftButton:
             self.m_drag=True
@@ -296,12 +309,16 @@ class mywindow(QMainWindow,Ui_Client):
             if not(event.isAutoRepeat()) and self.Key_Space==True:
                 self.on_btn_Buzzer()
                 self.Key_Space=False
-        
 
         
     def on_btn_ForWard(self):
-        ForWard=self.intervalChar+str(1500)+self.intervalChar+str(1500)+self.intervalChar+str(1500)+self.intervalChar+str(1500)+self.endChar
-        self.TCP.sendData(cmd.CMD_MOTOR+ForWard)
+        speed = 895 + int(3200 * (self.speed_slider.value() / 100))
+        ForWard = self.intervalChar + str(speed) +\
+                  self.intervalChar + str(speed) +\
+                  self.intervalChar + str(speed) +\
+                  self.intervalChar + str(speed) +\
+                  self.endChar
+        self.TCP.sendData(cmd.CMD_MOTOR + ForWard)
 
     def on_btn_Turn_Left(self):
         Turn_Left=self.intervalChar+str(-1500)+self.intervalChar+str(-1500)+self.intervalChar+str(1500)+self.intervalChar+str(1500)+self.endChar

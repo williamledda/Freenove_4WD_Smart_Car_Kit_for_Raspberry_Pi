@@ -2,13 +2,14 @@ import time
 from Motor import *
 import RPi.GPIO as GPIO
 from servo import *
-from PCA9685 import PCA9685
+
 GPIO.setwarnings(False)
 trigger_pin = 27
 echo_pin = 22
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(trigger_pin,GPIO.OUT)
 GPIO.setup(echo_pin,GPIO.IN)
+
 class Ultrasonic:
     def send_trigger_pulse(self):
         GPIO.output(trigger_pin,True)

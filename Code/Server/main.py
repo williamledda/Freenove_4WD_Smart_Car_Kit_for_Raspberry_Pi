@@ -1,15 +1,9 @@
-import io
 import os
-import socket
-import struct
-import time
-import picamera
 import sys,getopt
 from Thread import *
 from threading import Thread
 from server import Server
 from server_ui import Ui_server_ui
-from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
